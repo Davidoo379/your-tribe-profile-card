@@ -80,7 +80,6 @@ input[type="radio"] {
   align-items: center;
   justify-content: center;
   font: 1.5rem bolder;
-  align-items: spacearound;
   background: var(--BUTTON_GRADIENT_BACK);
   padding: 1rem;
   width: 150px;
@@ -133,24 +132,28 @@ input[type="radio"] {
   width: 100%;
   height: auto;
 }
+.img-container{
+  display: flex;
+  justify-content: center;
+}
 
 /*hobbys placement*/
-.stage:has(label:nth-of-type(1) input:checked) ~.background-img{
+.stage:has(label:nth-of-type(1) input:checked) ~.img-container .background-img{
   transform: translate(-500px, -200px);
 }
 /*ambitions placement*/
-.stage:has(label:nth-of-type(2) input:checked) ~.background-img{
+.stage:has(label:nth-of-type(2) input:checked) ~.img-container .background-img{
   transform: translate(300px, -300px) rotate(-45deg);
 }
 /*profile placement*/
-.stage:has(label:nth-of-type(3) input:checked) ~.background-img{
+.stage:has(label:nth-of-type(3) input:checked) ~.img-container .background-img{
   transform: translate(0px, -200px);
 }
 /*educations placement*/
-.stage:has(label:nth-of-type(4) input:checked) ~.background-img{
+.stage:has(label:nth-of-type(4) input:checked) ~.img-container .background-img{
   transform: translate(0px, 200px);
 }
 /*skills placement*/
-.stage:has(label:nth-of-type(5) input:checked) ~.background-img{
+.stage:has(label:nth-of-type(5) input:checked) ~.img-container .background-img{
   transform: translate(500px, -200px);
 }
