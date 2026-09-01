@@ -3,8 +3,27 @@
   padding: 0;
   margin: 0;
 }
+:root {
+  --DARK_BLUE: #003049;
+  --RED: #d66228;
+  --ORANGE: #F77F00;
+  --YELLOW: #FCBF49;
+  --WHITE: #EAE2B7;
+
+  --BUTTON_GRADIENT_BACK:linear-gradient(var(--WHITE), var(--ORANGE));
+  --BUTTON_GRADIENT_FRONT:linear-gradient(var(--YELLOW), var(--RED));
+
+  --FT_COLOR_BLACK: black;
+  --FT_COLOR_WHITE: white;
+}
+
 html{
-  background-color: rgb(222, 196, 146);
+  background-color: var(--DARK_BLUE);
+}
+
+.hidden{
+  position: absolute;
+  transform: translate(10000px);
 }
 
 .stage {
@@ -21,12 +40,11 @@ html{
   align-items: center;
   justify-content: center;
   font:1.5rem bolder;
-  background: linear-gradient(rgb(223, 174, 85), rgb(192, 104, 3));
+  background: var(--BUTTON_GRADIENT_BACK);
   padding: 1rem;
   width: 10rem;
   border-radius: 1rem;
-  border-color: rgb(255, 237, 105);
-  border-top: rgb(255, 250, 209);
+  border-color: var(--YELLOW);
   box-shadow: 0rem 0.5rem 10px rgba(0, 0, 0, 0.245);
 
 
@@ -34,16 +52,17 @@ html{
     width 0.3s ease,
     height 0.1s ease,
     background 0.3s ease,
-    color 0.1s ease;
+    color 0.1s ease,
+    border 0.2s ease;
 }
 
 .stage button.is-active {
   font:1.5rem bolder;
   width: 150px;
   height: 64px;
-  background: linear-gradient(lightyellow, orange);
-  color: #fff;
-  border-color: #ffefe7;
+  background: var(--BUTTON_GRADIENT_FRONT);
+  color: var(--FT_COLOR_WHITE);
+  border:5px solid var(--WHITE);
   z-index: 10;
 }
 
@@ -60,8 +79,30 @@ html{
   height: 36px;
   z-index: 8;
 }
+.background-img{
+  position: absolute;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.background-img-hobbys{
+  transform: translate(20px);
+}
+.background-img-ambitions{
+  transform: translate(200px);
+}
+.background-img-profile{
+  transform: translate(200px);
+}
+.background-img-educations{
+  transform: translate(200px);
+}
+.background-img-skills{
+  transform: translate(200px);
+}
 
-img {
+.background-img img{
+  position: relative;
   width: 100%;
   height: auto;
 }
+
+

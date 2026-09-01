@@ -1,9 +1,17 @@
 let stage = document.querySelector('.stage');
-let active = 0;
+let active = 2;
+
+const classArray = [
+  'background-img-hobbys',
+  'background-img-ambitions',
+  'background-img-profile',
+  'background-img-educations',
+  'background-img-skills'];
 
 function layout() {
+  const aside = document.querySelector('background-img')
   const buttons = stage.querySelectorAll('button');
-  const spacing = 90;
+  const spacing = 120;
 
   buttons.forEach((btn, i) => {
     const dist = Math.abs(i - active);
@@ -12,6 +20,16 @@ function layout() {
     btn.style.transform = `translateX(${(i - active) * spacing}px)`;
     btn.style.zIndex = 100 - dist; // closer to active = always higher, both directions
   });
+
+  classArray.forEach((element, i) => {
+    if (i === active) {
+      aside.classList.add(element);
+    }
+    else {
+      aside.classList.remove(element);
+    }
+  });
+
 }
 
 function goTo(i) {
