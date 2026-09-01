@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="nl">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FDND Visitekaartje</title>
-    <link rel="stylesheet" href="styles/style.css">
-  </head>
-  <body>
-    <header>
-      <h1 class="hidden">David Jak</h1>
-      <nav class="stage">
-        <button>Hobby's</button>
-        <button>Ambitions</button>
-        <button>Profile</button>
-        <button>Educations</button>
-        <button>Skills</button>
-      </nav>
-    </header>
-    
-    <article class="profile-page">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FDND Visitekaartje</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+  <header>
+    <h1 class="hidden">David Jak</h1>
+    <form class="stage">
+      <label for="hobbys"><input type="radio" name="tab" id="hobbys">Hobby's</label>
+      <label for="abitions"><input type="radio" name="tab" id="abitions">Ambitions</label>
+      <label for="profile"><input  type="radio" name="tab" id="profile" checked="checked">Profile</label>
+      <label for="educations"><input type="radio" name="tab" id="educations">Educations</label>
+      <label for="skills"><input type="radio" name="tab" id="skills">Skills</label>
+    </form>
+  </header>
+
+  <!-- <article class="profile-page">
       <header>
         <h2>David Jak</h2>
       </header>
@@ -35,12 +37,10 @@
         <p><cite>"Is the juice worth the Sqeeze?"</cite></p>
       </section>
     </article>
-
+    
     <aside class="background-img" >
       <img src="assets/creative-coder.png" alt="" width="1615" height="2333">
-    </aside>
+    </aside> -->
+</body>
 
-    <script src="scripts/script.js"></script>
-    
-  </body>
 </html>
