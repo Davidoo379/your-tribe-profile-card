@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Hammersmith+One&display=swap');
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -19,6 +21,7 @@
 
   --FT_COLOR_BLACK: black;
   --FT_COLOR_WHITE: white;
+  --FF: 'Hammersmith One', sans sarif;
 }
 
 html {
@@ -27,8 +30,18 @@ html {
   background-size: cover;
   width: 100%;
   height: 100%;
+  font-family: var(--FF);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+body {
+  background: linear-gradient(rgb(155, 210, 255), rgb(61, 59, 158));
+  padding: 2rem;
+  border: 5px solid white;
+  border-radius: 4rem;
+}
 
 /*UTILITIE CLASSES*/
 .hidden {
@@ -42,33 +55,8 @@ html {
   height: 110px;
   display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-/*MOVE NAV TO HOBBYS*/
-.stage:has(> *:nth-of-type(1) input:checked) {
-
-}
-
-/*MOVE NAV TO AMBITIONS*/
-.stage:has(> *:nth-of-type(2) input:checked) {
-
-}
-
-/*MOVE NAV TO PROFILE*/
-.stage:has(> *:nth-of-type(3) input:checked) {
-
-}
-
-/*MOVE NAV TO EDUCATIONS*/
-.stage:has(> *:nth-of-type(4) input:checked) {
-
-}
-
-/*MOVE NAV TO SKILLS*/
-.stage:has(> *:nth-of-type(5) input:checked) {
-
 }
 
 input[type="radio"] {
@@ -77,15 +65,14 @@ input[type="radio"] {
   margin: 0;
 }
 
-
 .stage label {
   display: flex;
   align-items: center;
   justify-content: center;
-  font: 1.5rem bolder;
+  font-size: 1.5rem;
   background: var(--BUTTON_GRADIENT_BACK);
   padding: 1rem;
-  width: 125px;
+  width: 145px;
   height: 20px;
   scale: 1;
   border-radius: 1rem;
@@ -93,8 +80,6 @@ input[type="radio"] {
   box-shadow: 0rem 0.25rem 15px var(--BUTTON_SHADOW_COLOR);
   user-select: none;
   position: absolute;
-
-  
 
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
     width 0.3s ease,
@@ -107,10 +92,10 @@ input[type="radio"] {
 
 /*ACTIVE TAB*/
 .stage label:has(>input:checked) {
-  font: 1.5rem bolder;
+  font-size: 1.5rem;
   scale: 1.5;
   margin: 0 auto;
-  box-shadow: 0rem 0rem 20px var( --BUTTON_SHADOW_COLOR_HIGHLIGHT);
+  box-shadow: 0rem 0rem 20px var(--BUTTON_SHADOW_COLOR_HIGHLIGHT);
   background: var(--BUTTON_GRADIENT_FRONT);
   color: var(--FT_COLOR_WHITE);
   border: 5px solid var(--WHITE);
@@ -119,15 +104,15 @@ input[type="radio"] {
 
 /*AFTER ACTIVE*/
 .stage label:has(+ label input:checked) {
-  font: 1.25rem bolder;
+  font-size: 1.25rem;
   scale: 1.4;
   z-index: 9;
   transform: translatex(75%);
 }
 
-/*AFTER ACTIVE*/
+/*AFTER AFTER ACTIVE*/
 .stage label:has(+ label + label input:checked) {
-  font: 1.25rem bolder;
+  font-size: 1.1rem;
   scale: 1.2;
   z-index: 8;
   transform: translatex(150%);
@@ -135,57 +120,106 @@ input[type="radio"] {
 
 /*BEFORE ACTIVE*/
 .stage label:has(> input:checked)+label {
-  font: 1.25rem bolder;
+  font-size: 1.25rem;
   scale: 1.4;
   z-index: 9;
   transform: translatex(-75%);
 }
 
-/*BEFORE ACTIVE*/
-.stage label:has(> input:checked)+label +label{
-  font: 1.25rem bolder;
+/*BEFORE BEFORE ACTIVE*/
+.stage label:has(> input:checked)+label+label {
+  font-size: 1.1rem bolder;
   scale: 1.2;
   z-index: 8;
   transform: translatex(-150%);
 }
 
-.stage label:has(>input:not(:checked)):hover {
+/*FOCUS TAB AND HOVER*/
+.stage label:has(>input:not(:checked)):hover,
+.stage label:has(>input:not(:checked)):focus {
   background: var(--BUTTON_GRADIENT_BACK_HIGHTLIGHTED);
 }
 
 /*BACKGROUND IMAGE PLACEMENT*/
 .background-img {
   position: absolute;
-  transition: transform 0.5s ease;
-  z-index: -1;
+  transition: transform 0.5s cubic-bezier(.13, .55, .4, 1.38);
+  pointer-events: none;
 }
+
 .background-img img {
   position: relative;
   width: 100%;
   height: auto;
 }
-.img-container{
+
+.img-container {
   display: flex;
   justify-content: center;
 }
 
 /*hobbys placement*/
-.stage:has(label:nth-of-type(1) input:checked) ~.img-container .background-img{
+.stage:has(label:nth-of-type(1) input:checked)~.img-container .background-img {
   transform: translate(-500px, -200px);
 }
+
 /*ambitions placement*/
-.stage:has(label:nth-of-type(2) input:checked) ~.img-container .background-img{
+.stage:has(label:nth-of-type(2) input:checked)~.img-container .background-img {
   transform: translate(300px, -300px) rotate(-45deg);
 }
+
 /*profile placement*/
-.stage:has(label:nth-of-type(3) input:checked) ~.img-container .background-img{
+.stage:has(label:nth-of-type(3) input:checked)~.img-container .background-img {
   transform: translate(0px, -200px);
 }
+
 /*educations placement*/
-.stage:has(label:nth-of-type(4) input:checked) ~.img-container .background-img{
+.stage:has(label:nth-of-type(4) input:checked)~.img-container .background-img {
   transform: translate(0px, 200px);
 }
+
 /*skills placement*/
-.stage:has(label:nth-of-type(5) input:checked) ~.img-container .background-img{
+.stage:has(label:nth-of-type(5) input:checked)~.img-container .background-img {
   transform: translate(500px, -200px);
+}
+
+
+/*MAIN STYLING*/
+main {
+  position: relative;
+  display: flex;
+  width: 700px;
+  height: 700px;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, black 80%, transparent 100%);
+}
+
+section {
+  position: absolute;
+  transform: translateX(-1000px);
+  transition: transform 0.2s ease;
+}
+
+header:has(.stage > *:nth-of-type(1) input:checked)~main> :nth-child(2) {
+  transform: translateX(0px);
+}
+
+header:has(.stage > *:nth-of-type(2) input:checked)~main> :nth-child(3) {
+  transform: translateX(0px);
+
+}
+
+header:has(.stage > *:nth-of-type(3) input:checked)~main> :nth-child(1) {
+  transform: translateX(0px);
+
+}
+
+header:has(.stage > *:nth-of-type(4) input:checked)~main> :nth-child(5) {
+  transform: translateX(0px);
+
+}
+
+header:has(.stage > *:nth-of-type(5) input:checked)~main> :nth-child(4) {
+  transform: translateX(0px);
+
 }
