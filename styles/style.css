@@ -18,7 +18,9 @@
   --BUTTON_GRADIENT_FRONT: linear-gradient(var(--YELLOW), var(--RED));
   --BUTTON_SHADOW_COLOR: rgba(70, 67, 26, 0.466);
   --BUTTON_SHADOW_COLOR_HIGHLIGHT: rgba(255, 241, 39, 0.808);
-  --BUTTON_SPACING_MIN: 65px;
+  --BUTTON_SPACING_MIN: 70px;
+  --BUTTON_SPACING_MAX: 90px;
+  --BUTTON_SPACING_OUTER_MAX: 90px;
 
   --FT_COLOR_BLACK: black;
   --FT_COLOR_WHITE: white;
@@ -47,7 +49,6 @@ html {
 body {
   display: flex;
   background: linear-gradient(rgb(155, 210, 255), rgb(61, 59, 158));
-  padding: 1rem;
   border: 2px solid white;
   border-radius: 1rem;
   flex-direction: column;
@@ -55,7 +56,7 @@ body {
   align-items: center;
   align-content: flex-start;
   margin: 1rem;
-  width: 100%;
+  width: min(100%, 650px);
   overflow-x: hidden;
 }
 
@@ -63,25 +64,102 @@ main {
   display: flex;
   overflow: hidden;
   width: 100%;
-  mask-image: linear-gradient(to right, black 80%, transparent 100%);
+  padding: 1rem;
+  mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 1) 1rem, rgba(255, 255, 255, 1) calc(100%-1rem), rgba(0, 0, 0, 0) 100%);
 }
 
+header {
+  padding: 1rem;
+  padding-bottom: 0;
+}
 
+ul,
+ol {
+  list-style-position: inside;
+}
 
 section {
-  display: none;
+  position: relative;
   color: #d6622800;
-  transition: color 0.4s ease;
+  left: 100%;
+  flex: 1 0 100%;
+  transition:
+    color 0.4s ease,
+    left 0.4s cubic-bezier(.19, .73, .45, 1.18);
 
-  h2 {
+  div h2 {
     font-size: var(--FT_SIZE_HEADERS);
   }
 
-  p,
-  cite,
-  li {
-    font-size: var(--FT_SIZE_PLAINTEXT);
+  div {
+    p,
+    cite,
+    li {
+      font-size: var(--FT_SIZE_PLAINTEXT);
+    }
   }
+}
+.sector-education {
+  background-image: url('../assets/scroll-svgrepo-com.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  padding: 2rem;
+  justify-self: center;
+}
+.sector-skills {
+  background-image: url('../assets/stone-svgrepo-com.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  padding: 2rem;
+  justify-self: center;
+}
+.sector-profile {
+  background-image: url('../assets/sign-board-svgrepo-com.svg');
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: contain;
+  padding: 2rem;
+  justify-self: center;
+  color: var(--FT_COLOR_WHITE)
+}
+.sector-ambitions {
+  background-image: url('../assets/fire-svgrepo-com.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  padding: 2rem;
+  justify-self: center;
+}
+.sector-hobbys {
+  background-image: url('../assets/panels-road-sign-svgrepo-com.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  padding: 2rem;
+  justify-self: center;
+}
+
+/* MOVING THE SECTIONS */
+header:has(.stage > *:nth-of-type(1) input:not(:checked))~main> :nth-child(2) {
+  left: 0%;
+}
+
+header:has(.stage > *:nth-of-type(2) input:not(:checked))~main> :nth-child(3) {
+  left: -100%;
+}
+
+header:has(.stage > *:nth-of-type(3) input:not(:checked))~main> :nth-child(1) {
+  left: 100%;
+}
+
+header:has(.stage > *:nth-of-type(5) input:not(:checked))~main> :nth-child(4) {
+  left: -200%;
+}
+
+header:has(.stage > *:nth-of-type(4) input:not(:checked))~main> :nth-child(5) {
+  left: -300%;
 }
 
 header:has(.stage > *:nth-of-type(1) input:checked)~main> :nth-child(2),
@@ -89,10 +167,30 @@ header:has(.stage > *:nth-of-type(2) input:checked)~main> :nth-child(3),
 header:has(.stage > *:nth-of-type(3) input:checked)~main> :nth-child(1),
 header:has(.stage > *:nth-of-type(5) input:checked)~main> :nth-child(4),
 header:has(.stage > *:nth-of-type(4) input:checked)~main> :nth-child(5) {
-  transform: translateX(0px);
   color: var(--FT_COLOR_BLACK);
-  display: block;
 }
+
+header:has(.stage > *:nth-of-type(1) input:checked)~main> :nth-child(2) {
+  left: -100%;
+}
+
+header:has(.stage > *:nth-of-type(2) input:checked)~main> :nth-child(3) {
+  left: -200%;
+}
+
+header:has(.stage > *:nth-of-type(3) input:checked)~main> :nth-child(1) {
+  left: 0;
+}
+
+
+header:has(.stage > *:nth-of-type(4) input:checked)~main> :nth-child(5) {
+  left: -400%;
+}
+
+header:has(.stage > *:nth-of-type(5) input:checked)~main> :nth-child(4) {
+  left: -300%;
+}
+
 
 
 /*UTILITIE CLASSES*/
@@ -101,13 +199,17 @@ header:has(.stage > *:nth-of-type(4) input:checked)~main> :nth-child(5) {
   transform: translate(10000px);
 }
 
+.parent {
+  position: absolute;
+}
+
 /*NAVIGATION*/
 .stage {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 5vh;
+  height: 50px;
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -122,7 +224,9 @@ input[type="radio"] {
   align-items: center;
   justify-content: center;
   background: var(--BUTTON_GRADIENT_BACK);
-  padding: 0.1rem;
+  padding: 0.2rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   font-size: var(--FT_SIZE_HEADER_SMALL_MIN);
   scale: 1;
   border: 0px solid var(--WHITE);
@@ -132,7 +236,7 @@ input[type="radio"] {
   position: absolute;
 
   transition:
-    transform 0.2s cubic-bezier(.19,.73,.45,1.18),
+    transform 0.2s cubic-bezier(.19, .73, .45, 1.18),
     background 0.3s ease,
     scale 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -167,26 +271,65 @@ input[type="radio"] {
 
 /*AFTER ACTIVE*/
 .stage label:has(+ label input:checked) {
-  transform: translatex(var(--BUTTON_SPACING_MIN));
+  transform: translatex(max(min(15vw, var(--BUTTON_SPACING_MAX)), var(--BUTTON_SPACING_MIN)));
 }
 
 /*AFTER AFTER ACTIVE*/
 .stage label:has(+ label + label input:checked) {
-  transform: translatex(calc(var(--BUTTON_SPACING_MIN)*2));
+  transform: translatex(calc(max(min(15vw, var(--BUTTON_SPACING_OUTER_MAX)), var(--BUTTON_SPACING_MIN))*2));
 }
 
 /*BEFORE ACTIVE*/
 .stage label:has(> input:checked)+label {
-  transform: translatex(calc(var(--BUTTON_SPACING_MIN)*-1));
+  transform: translatex(calc((max(min(15vw, var(--BUTTON_SPACING_MAX)), var(--BUTTON_SPACING_MIN))*-1)));
 }
 
 /*BEFORE BEFORE ACTIVE*/
 .stage label:has(> input:checked)+label+label {
-  transform: translatex(calc(var(--BUTTON_SPACING_MIN)*-2));
+  transform: translatex(calc((max(min(15vw, var(--BUTTON_SPACING_OUTER_MAX)), var(--BUTTON_SPACING_MIN))*-2)));
 }
 
 /*FOCUS TAB AND HOVER*/
 .stage label:has(>input:not(:checked)):hover,
 .stage label:has(>input:not(:checked)):focus {
   background: var(--BUTTON_GRADIENT_BACK_HIGHTLIGHTED);
+}
+
+/* IMAGE */
+img {
+  transform: translate(0%, 0%);
+  display: block;
+  pointer-events: none;
+  width: 100%;
+  height: auto;
+
+  transition:
+    transform 0.3s cubic-bezier(.19, .73, .45, 1.18),
+    scale 0.3s cubic-bezier(.19, .73, .45, 1.18);
+}
+
+/* HOBBYS IMAGE PLACEMENT */
+body:has(#hobbys:checked) .background-img img {
+  transform: translate(-50%, 0%);
+}
+
+/* ABITIONS IMAGE PLACEMENT */
+body:has(#abitions:checked) .background-img img {
+  transform: translate(43%, -15%) rotate(-45deg);
+}
+
+/* PROFILE IMAGE PLACEMENT */
+body:has(#profile:checked) .background-img img {
+  transform: translate(0%, 0%);
+}
+
+/* EDUCATION IMAGE PLACEMENT */
+body:has(#educations:checked) .background-img img {
+  transform: translate(0%, 40%);
+  scale: 1.2;
+}
+
+/* SKILLS IMAGE PLACEMENT */
+body:has(#skills:checked) .background-img img {
+  transform: translate(50%, 0%);
 }

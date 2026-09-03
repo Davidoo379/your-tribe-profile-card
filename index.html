@@ -7,6 +7,7 @@
   <title>FDND Visitekaartje</title>
   <link rel="stylesheet" href="styles/style.css">
 </head>
+
 <body>
   <header>
     <form class="stage">
@@ -16,56 +17,76 @@
       <label for="educations"><input type="radio" name="tab" id="educations">Educations</label>
       <label for="skills"><input type="radio" name="tab" id="skills">Skills</label>
     </form>
-
-  
-     
   </header>
+  <div class="parent">
+    <div class="icon fire"></div>
+    <div class="icon sign"></div>
+    <div class="icon paper"></div>
+    <div class="icon stone"></div>
+    <div class="icon scroll"></div>
+    <div class="icon roadsign"></div>
+  </div>
   <main>
     <section>
-      <h2>Information</h2>
-      <ul>
-        <li>Name: David Jak</li>
-        <li>Nationaliteit: Nederlands</li>
-        <li>City: Wormer</li>
-        <li>Birthday: <time datetime="2001-03-21">2001-03-21</time></li>
-      </ul>
-      <p>Qoute:</p>
-      <cite>"Is the juice worth the Sqeeze?"</cite>
+      <div class="sector-profile">
+        <h2>Information</h2>
+        <ul>
+          <li>Name: David Jak</li>
+          <li>Nationaliteit: Nederlands</li>
+          <li>City: Wormer</li>
+          <li>Birthday: <time datetime="2001-03-21">2001-03-21</time></li>
+        </ul>
+        <p>Qoute:</p>
+        <cite>"Is the juice worth the Sqeeze?"</cite>
+      </div>
     </section>
     <section>
-      <h2>Hobby's</h2>
-      <ul>
-        <li>Gym</li>
-        <li>Games</li>
-        <li>Bakken</li>
-        <li>Films & Series</li>
-      </ul>
+      <div class="sector-hobbys">
+        <h2>Hobby's</h2>
+        <ul>
+          <li>Gym</li>
+          <li>Games</li>
+          <li>Bakken</li>
+          <li>Films & Series</li>
+        </ul>
+      </div>
     </section>
     <section>
-      <h2>Ambitions</h2>
-      <ul>
-        <li>Make Websites of the future.</li>
-        <li>Getting a job I love.</li>
-      </ul>
+      <div class="sector-ambitions">
+        <h2>Ambitions</h2>
+        <ul>
+          <li>Make Websites of the future.</li>
+          <li>Getting a job I love.</li>
+        </ul>
+      </div>
     </section>
     <section>
-      <h2>Skills</h2>
-      <ul>
-        <li><abbr title="Hyper Text Markup Language">HTML</abbr></li>
-        <li>C#</li>
-        <li>Game Dev</li>
-        <li>Drawing</li>
-      </ul>
+      <div class="sector-skills">
+        <h2>Skills</h2>
+        <ul>
+          <li><abbr title="Hyper Text Markup Language">HTML</abbr></li>
+          <li>C#</li>
+          <li>Game Dev</li>
+          <li>Drawing</li>
+        </ul>
+      </div>
     </section>
     <section>
-      <h2>Educations</h2>
-      <ol>
-        <li><abbr title="voorbereidend middelbaar beroepsonderwijs Theoretische leerweg">VMBO TL</abbr></li>
-        <li><abbr title="hoger algemeen voortgezet onderwijs">HAVO</abbr></li>
-        <li><abbr title="creative media and game technologies">CMGT</abbr></li>
-      </ol>
+      <div class="sector-education">
+        <h2>Educations</h2>
+        <ol>
+          <li><abbr title="voorbereidend middelbaar beroepsonderwijs Theoretische leerweg">VMBO TL</abbr></li>
+          <li><abbr title="hoger algemeen voortgezet onderwijs">HAVO</abbr></li>
+          <li><abbr title="creative media and game technologies">CMGT</abbr></li>
+        </ol>
+      </div>
     </section>
   </main>
+  <div class="img-container">
+    <aside class="background-img">
+      <img src="assets/creative-coder.png" alt="" width="1615" height="2333">
+    </aside>
+  </div>
 </body>
 
 </html>
