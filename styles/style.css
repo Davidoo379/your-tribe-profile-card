@@ -18,16 +18,16 @@
   --BUTTON_GRADIENT_FRONT: linear-gradient(var(--YELLOW), var(--RED));
   --BUTTON_SHADOW_COLOR: rgba(70, 67, 26, 0.466);
   --BUTTON_SHADOW_COLOR_HIGHLIGHT: rgba(255, 241, 39, 0.808);
-  --BUTTON_SPACING_MIN: 25px;
+  --BUTTON_SPACING_MIN: 65px;
 
   --FT_COLOR_BLACK: black;
   --FT_COLOR_WHITE: white;
   --FF: 'Hammersmith One', sans sarif;
-  --FT_SIZE_HEADER_BIG_MIN: 0.5rem;
-  --FT_SIZE_HEADER_MEDIUM_MIN: 0.4rem;
-  --FT_SIZE_HEADER_SMALL_MIN: 0.3rem;
-  --FT_SIZE_HEADERS: 0.4rem;
-  --FT_SIZE_PLAINTEXT: 0.3rem;
+  --FT_SIZE_HEADER_BIG_MIN: 1.5rem;
+  --FT_SIZE_HEADER_MEDIUM_MIN: 1rem;
+  --FT_SIZE_HEADER_SMALL_MIN: 0.9rem;
+  --FT_SIZE_HEADERS: 2rem;
+  --FT_SIZE_PLAINTEXT: 1rem;
 
 }
 
@@ -40,6 +40,7 @@ html {
   justify-content: center;
   align-items: flex-start;
   height: 100%;
+  overflow-x: hidden;
 }
 
 /*MAIN STYLING*/
@@ -48,19 +49,20 @@ body {
   background: linear-gradient(rgb(155, 210, 255), rgb(61, 59, 158));
   padding: 1rem;
   border: 2px solid white;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   align-content: flex-start;
-  gap: 2vh;
-  margin: 0.2rem;
-  width: fit-content;
+  margin: 1rem;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 main {
   display: flex;
   overflow: hidden;
+  width: 100%;
   mask-image: linear-gradient(to right, black 80%, transparent 100%);
 }
 
@@ -105,6 +107,7 @@ header:has(.stage > *:nth-of-type(4) input:checked)~main> :nth-child(5) {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 5vh;
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -186,47 +189,4 @@ input[type="radio"] {
 .stage label:has(>input:not(:checked)):hover,
 .stage label:has(>input:not(:checked)):focus {
   background: var(--BUTTON_GRADIENT_BACK_HIGHTLIGHTED);
-}
-
-/*BACKGROUND IMAGE PLACEMENT*/
-.background-img {
-  position: absolute;
-  transition: transform 0.5s cubic-bezier(.13, .55, .4, 1.38);
-  pointer-events: none;
-}
-
-.background-img img {
-  position: relative;
-  width: 100%;
-  height: auto;
-}
-
-.img-container {
-  display: flex;
-  justify-content: center;
-}
-
-/*hobbys placement*/
-.stage:has(label:nth-of-type(1) input:checked)~.img-container .background-img {
-  transform: translate(-500px, -200px);
-}
-
-/*ambitions placement*/
-.stage:has(label:nth-of-type(2) input:checked)~.img-container .background-img {
-  transform: translate(300px, -300px) rotate(-45deg);
-}
-
-/*profile placement*/
-.stage:has(label:nth-of-type(3) input:checked)~.img-container .background-img {
-  transform: translate(0px, -200px);
-}
-
-/*educations placement*/
-.stage:has(label:nth-of-type(4) input:checked)~.img-container .background-img {
-  transform: translate(0px, 200px);
-}
-
-/*skills placement*/
-.stage:has(label:nth-of-type(5) input:checked)~.img-container .background-img {
-  transform: translate(500px, -200px);
 }
