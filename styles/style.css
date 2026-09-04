@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Hammersmith+One&display=swap');
 
+/* STYLE RESET */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -33,6 +34,7 @@
 
 }
 
+/* SITE STYLING */
 html {
   background: var(--BACKGROUND-GRADIENT);
   background-repeat: no-repeat;
@@ -45,7 +47,7 @@ html {
   overflow-x: hidden;
 }
 
-/*MAIN STYLING*/
+/* LAYOUT AND BORDERING THE BODY */
 body {
   display: flex;
   background: linear-gradient(rgb(155, 210, 255), rgb(61, 59, 158));
@@ -59,7 +61,7 @@ body {
   width: min(100%, 650px);
   overflow-x: hidden;
 }
-
+/* MASK THE SECTIONS IN THE MAIN */
 main {
   display: flex;
   overflow: hidden;
@@ -67,17 +69,18 @@ main {
   padding: 1rem;
   mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 1) 1rem, rgba(255, 255, 255, 1) calc(100%-1rem), rgba(0, 0, 0, 0) 100%);
 }
-
+/* CHANGE PADDING FOR HEADER */
 header {
   padding: 1rem;
   padding-bottom: 0;
 }
-
+/* MOVEING DOTS IN LISTS TO INSIDE */
 ul,
 ol {
   list-style-position: inside;
 }
 
+/* SLIDING SECTIONS */
 section {
   position: relative;
   color: #d6622800;
@@ -100,27 +103,29 @@ section {
   }
 }
 
-/* MOVING THE SECTIONS */
+/* MOVING THE SECTIONS TO THE MIDDLE*/
+/* AMBITIONS */
 header:has(.stage > *:nth-of-type(1) input:not(:checked))~main> :nth-child(2) {
   left: 0%;
 }
-
+/* HOBBYS */
 header:has(.stage > *:nth-of-type(2) input:not(:checked))~main> :nth-child(3) {
   left: -100%;
 }
-
+/* PROFILE */
 header:has(.stage > *:nth-of-type(3) input:not(:checked))~main> :nth-child(1) {
   left: 100%;
 }
-
+/* SKILLS */
 header:has(.stage > *:nth-of-type(5) input:not(:checked))~main> :nth-child(4) {
   left: -200%;
 }
-
+/* EDUCATIONS */
 header:has(.stage > *:nth-of-type(4) input:not(:checked))~main> :nth-child(5) {
   left: -300%;
 }
 
+/* COLOR THE SECTION FOR A FADE IN REVEAL */
 header:has(.stage > *:nth-of-type(1) input:checked)~main> :nth-child(2),
 header:has(.stage > *:nth-of-type(2) input:checked)~main> :nth-child(3),
 header:has(.stage > *:nth-of-type(3) input:checked)~main> :nth-child(1),
@@ -129,26 +134,28 @@ header:has(.stage > *:nth-of-type(4) input:checked)~main> :nth-child(5) {
   color: var(--FT_COLOR_BLACK);
 }
 
+/* MOVING THE SECTION AWAY TO HIDE THEM */
+/* AMBITIONS */
 header:has(.stage > *:nth-of-type(1) input:checked)~main> :nth-child(2) {
   left: -100%;
 }
-
+/* HOBBYS */
 header:has(.stage > *:nth-of-type(2) input:checked)~main> :nth-child(3) {
   left: -200%;
 }
-
+/* PROFILE */
 header:has(.stage > *:nth-of-type(3) input:checked)~main> :nth-child(1) {
   left: 0;
 }
-
-
+/* SKILLS */
+header:has(.stage > *:nth-of-type(5) input:checked)~main> :nth-child(4) {
+  left: -300%;
+}
+/* EDUCATIONS */
 header:has(.stage > *:nth-of-type(4) input:checked)~main> :nth-child(5) {
   left: -400%;
 }
 
-header:has(.stage > *:nth-of-type(5) input:checked)~main> :nth-child(4) {
-  left: -300%;
-}
 
 
 
@@ -171,7 +178,7 @@ header:has(.stage > *:nth-of-type(5) input:checked)~main> :nth-child(4) {
   height: 50px;
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
-
+/* REMOVE CHECKBOX */
 input[type="radio"] {
   appearance: none;
   -webkit-appearance: none;
