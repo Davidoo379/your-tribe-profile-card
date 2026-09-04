@@ -99,47 +99,6 @@ section {
     }
   }
 }
-.sector-education {
-  background-image: url('../assets/scroll-svgrepo-com.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  padding: 2rem;
-  justify-self: center;
-}
-.sector-skills {
-  background-image: url('../assets/stone-svgrepo-com.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  padding: 2rem;
-  justify-self: center;
-}
-.sector-profile {
-  background-image: url('../assets/sign-board-svgrepo-com.svg');
-  background-repeat: no-repeat;
-  background-position: left;
-  background-size: contain;
-  padding: 2rem;
-  justify-self: center;
-  color: var(--FT_COLOR_WHITE)
-}
-.sector-ambitions {
-  background-image: url('../assets/fire-svgrepo-com.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  padding: 2rem;
-  justify-self: center;
-}
-.sector-hobbys {
-  background-image: url('../assets/panels-road-sign-svgrepo-com.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  padding: 2rem;
-  justify-self: center;
-}
 
 /* MOVING THE SECTIONS */
 header:has(.stage > *:nth-of-type(1) input:not(:checked))~main> :nth-child(2) {
