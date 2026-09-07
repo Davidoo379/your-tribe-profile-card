@@ -7,6 +7,7 @@
   margin: 0;
 }
 
+/* VARIABLES */
 :root {
   --BACKGROUND-GRADIENT: linear-gradient(rgb(77, 154, 255), rgb(214, 214, 214));
   --RED: #d66228;
@@ -15,7 +16,7 @@
   --WHITE: #EAE2B7;
 
   --BUTTON_GRADIENT_BACK: linear-gradient(var(--WHITE), var(--ORANGE));
-  --BUTTON_GRADIENT_BACK_HIGHTLIGHTED: linear-gradient(var(--ORANGE), var(--WHITE));
+  --BUTTON_GRADIENT_BACK_HIGHLIGHTED: linear-gradient(var(--ORANGE), var(--WHITE));
   --BUTTON_GRADIENT_FRONT: linear-gradient(var(--YELLOW), var(--RED));
   --BUTTON_SHADOW_COLOR: rgba(70, 67, 26, 0.466);
   --BUTTON_SHADOW_COLOR_HIGHLIGHT: rgba(255, 241, 39, 0.808);
@@ -43,7 +44,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  height: fit-content;
+  height: 100%;
   overflow-x: hidden;
 }
 
@@ -60,6 +61,7 @@ body {
   margin: 1rem;
   width: min(100%, 650px);
   overflow-x: hidden;
+  scrollbar-width: none;
 }
 /* MASK THE SECTIONS IN THE MAIN */
 main {
@@ -74,7 +76,7 @@ header {
   padding: 1rem;
   padding-bottom: 0;
 }
-/* MOVEING DOTS IN LISTS TO INSIDE */
+/* MOVING DOTS IN LISTS TO INSIDE */
 ul,
 ol {
   list-style-position: inside;
@@ -227,7 +229,7 @@ input[type="radio"] {
   z-index: 9;
 }
 
-/* SMALL HEDAER BUTTONS */
+/* SMALL HEADER BUTTONS */
 .stage label:has(+ label + label input:checked),
 .stage label:has(> input:checked)+label+label {
   font-size: var(--FT_SIZE_HEADER_SMALL_MIN);
@@ -258,7 +260,7 @@ input[type="radio"] {
 /*FOCUS TAB AND HOVER*/
 .stage label:has(>input:not(:checked)):hover,
 .stage label:has(>input:not(:checked)):focus {
-  background: var(--BUTTON_GRADIENT_BACK_HIGHTLIGHTED);
+  background: var(--BUTTON_GRADIENT_BACK_HIGHLIGHTED);
 }
 
 /* IMAGE */
